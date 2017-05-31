@@ -1,0 +1,539 @@
+.screen-container {
+  @include flex;
+  @include flex-direction(column);
+  @include breakpoint(xlarge) {
+    @include flex-direction(row);
+
+  }
+}
+
+.left {
+  position: relative;
+  border: 4px solid black;
+  @include breakpoint(xxlarge) {
+    padding-top: 8vh;
+    border: 8px solid black;
+  }
+}
+
+
+.right {
+  position: relative;
+  // height: 100vh;
+  // width: 100%;
+}
+
+/** Wrapper ** ----------------------------------**/
+/**** -------------------------------**/
+.containerLeft {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 86%;
+  margin-top: 2vh;
+  margin-bottom: 6vh;
+  @include breakpoint(ipad) {
+    width: 90%;
+    margin-top: 0vh
+  }
+}
+
+.containerRight {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+/** Wrapper End ** ----------------------------------**/
+/**** -------------------------------**/
+
+
+
+/** Base ** ----------------------------------**/
+/**** -------------------------------**/
+html body p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.flexMode {
+  @include flex;
+}
+
+.titleBox {
+  background: black;
+  color: white;
+  padding-left: 0.5rem;
+  font-weight: 600;
+}
+
+.borderBox {
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
+.marginTop {
+  margin-top: 1rem;
+}
+
+.marginBttm {
+  margin-bottom: 1rem;
+}
+
+/** Base End ** ----------------------------------**/
+/**** -------------------------------**/
+
+
+
+/** Mobile menu ** ----------------------------------**/
+/**** -------------------------------**/
+#offCanvas {
+  background: #0a0a0a;
+  // height: 10vh;
+  // transform: translateY(90px);
+}
+
+#offCanvas.position-bottom {
+  // transform: translateY(90px);
+}
+
+#mobile-menu {
+  @include flex-align(center);
+  margin-top: 2vh;
+  a {
+    color: #fff;
+  }
+}
+
+#mobile-btn {
+  width: 50px;
+	height: 50px;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+  background-color: #000;
+  position: fixed;
+  bottom: 5vh;
+  right: 5vw;
+  color: white;
+
+  &:link, &:hover, &:focus {
+    background-color: #000;
+  }
+}
+
+.navicon {
+  position: absolute;
+  top: 36%;
+  width: 1.5em;
+  height: 0.15em;
+  background: white;
+  box-shadow:
+    0 0.4em 0 0 white,
+    0 0.8em 0 0 white;
+}
+
+#mobile-close-btn {
+  position: fixed;
+  bottom: 5vh;
+  right: 5vw;
+}
+/** End Mobile menu ** -------------------------------**/
+
+
+
+
+
+/** Header ** ----------------------------------**/
+/**** -------------------------------**/
+
+#logo {
+  // @include flex;
+  // @include flex-align(center);
+  @include grid-row;
+  h1 {
+    margin-bottom: 0;
+    font-weight: 600;
+    @extend .text-center;
+    @include grid-column(5);
+    @include grid-column-position(center);
+  }
+}
+
+#quote {
+  @include grid-row;
+  h2 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.6;
+    @include grid-column-position(center);
+    @include grid-column(12);
+
+    @include breakpoint(xxlarge) {
+      line-height: 1.2;
+    }
+  }
+}
+
+/** Header End ** ----------------------------------**/
+/**** -------------------------------**/
+
+
+
+
+/** Intro ** ----------------------------------**/
+/**** -------------------------------**/
+#intro {
+  @include grid-row;
+  // @include breakpoint(ipad) {
+  //   @include flex-direction(row);
+  //   @include flex-align(spaced, middle);
+  // }
+}
+/** Intro End ** ----------------------------------**/
+/**** -------------------------------**/
+
+
+
+/** Contact me ** ----------------------------------**/
+/**** -------------------------------**/
+#contactMe {
+  @include grid-row;
+  // @include breakpoint(medium) {
+  //   @include grid-col-collapse();
+  // }
+
+  .text {
+    @include grid-column(62.7%);
+    @include breakpoint(medium) {
+    @include grid-col(33%);
+    }
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .social-icons {
+    @include grid-column(55%);
+    @extend .float-left;
+    @include breakpoint(medium) {
+      @include grid-col(29%);
+    }
+
+    ul.menu li a {
+      &:first-child {
+        padding-left: 0;
+      }
+      padding: 0 1rem;
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  @include breakpoint(medium) {
+    @include flex-direction(row);
+    @include flex-align(left, middle);
+  }
+}
+
+/** Contact me end ** ----------------------------------**/
+/**** -------------------------------**/
+
+
+/** About me ** ----------------------------------**/
+/**** -------------------------------**/
+#aboutMe {
+  // height: 25px;
+  // width: 375px;
+  // position: absolute;
+  // top: 0; bottom: 0; left: 0vw; right: 0;
+  margin: auto;
+  padding: 2rem 1rem;
+  // display: none;
+  // overflow: auto;
+  // overflow: hidden;
+}
+
+#profile {
+  // display: none;
+  @include flex-align(center, middle);
+  @include flex-direction(column);
+  .avatar{
+    /* Safari fix */
+    flex: 0 0 0;
+    width: 50%;
+    /* Safari fix */
+    @include flex-grid-column(6);
+
+    @include breakpoint(ipad) {
+      @include flex-grid-column(4);
+      width: 35%
+    }
+  }
+
+  .introText {
+    @include flex-grid-column(12);
+    @extend .text-center;
+    margin-top: 1rem;
+      h3 {
+        font-weight: 600;
+        margin-bottom: 0;
+        font-size: 1.75rem;
+      }
+      p {
+        font-weight: 200;
+      }
+    }
+  @include breakpoint(xxlarge) {
+    @include flex-grid-column(12);
+  }
+}
+
+#skills ul {
+  margin: 1.5rem 0;
+  @include breakpoint(medium) {
+    @include grid-column(6);
+  }
+  li {
+    text-transform:uppercase;
+    margin-bottom: 0.5rem;
+    .skillTitle {
+      @include grid-column(4);
+      @include breakpoint(medium) {
+        @include grid-column(3);
+      }
+    }
+    .progressBarContainer {
+      @include grid-column(6);
+      @include breakpoint(medium) {
+        @include grid-column(6);
+        @include grid-column-offset(2);
+      }
+    }
+  }
+}
+
+.progressBarContainer {
+  width: 100%;
+  max-width: 300px;
+  height: 1.5em;
+  background: lighten($barColor, 75%);
+  overflow: hidden;
+  border-radius: 3px;
+  margin-right: 15px;
+}
+
+.progressBarValue {
+  height: 1.5em;
+  float: left;
+  background: lighten($barColor, 20%);
+}
+
+.value-00 { width: 0; }
+.value-10 { width: 10%; }
+.value-20 { width: 20%; }
+.value-30 { width: 30%; }
+.value-40 { width: 40%; }
+.value-50 { width: 50%; }
+.value-60 { width: 60%; }
+.value-70 { width: 70%; }
+.value-75 { width: 75%; }
+.value-80 { width: 80%; }
+.value-90 { width: 90%; }
+.value-95 { width: 95%; }
+.value-100 { width: 100%; }
+
+
+/** About me End ** ----------------------------------**/
+/**** -------------------------------**/
+
+
+
+/** My Field ** ----------------------------------**/
+/**** -------------------------------**/
+// #myField {
+//   @include flex-direction(column);
+//   margin-top: 2vh;
+//
+//   .contents{
+//     margin-top: 1rem;
+//     @include flex;
+//     @include flex-direction(row);
+//     @include flex-align(spaced);
+//     flex-wrap: wrap;
+//   }
+//
+//   h4 {
+//     @extend .text-center;
+//     font-weight: 200;
+//     // color: white;
+//     border-radius: 10px;
+//     border: solid 1.5px #000;
+//     padding: 5px;
+//     margin-bottom: 1rem;
+//   }
+//
+//   @include breakpoint(ipad) {
+//     // @include flex-align(spaced, top);
+//   }
+// }
+
+/** My Field End ** ----------------------------------**/
+/**** -------------------------------**/
+
+
+/** Work Page transition ** ----------------------------------**/
+/**** -------------------------------**/
+#main-page {
+    // height: 25px;
+    // width: 375px;
+    // position: absolute;
+    // top: 0; bottom: 0; left: 0vw; right: 0;
+    padding: 0 0.5rem;
+    margin: auto;
+    background-color: #000;
+    // display: none;
+    // overflow: auto;
+}
+
+#next-page {
+    height: 25px;
+    width: 375px;
+    position: absolute;
+    top: 0; bottom: 0; left: 0vw; right: 0;
+    margin: auto;
+    background-color: #27ae60;
+    display: none;
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
+
+}
+
+#third-page {
+    height: 25px;
+    width: 375px;
+    position: absolute;
+    top: 0; bottom: 0; left: 0vw; right: 0;
+    margin: auto;
+    background-color: #16A085;
+    display: none;
+}
+
+.maincontent, .workContents {
+    // display: none;
+}
+
+.maincontent {
+  // position: absolute;
+  // right: 0px;
+  // left: 0px;
+  padding: 2rem 1rem;
+
+  @include flex-align(spaced);
+  @include flex-direction(column);
+
+  @include breakpoint(ipad) {
+    @include flex-direction(row);
+    @include flex-grid-layout(2);
+    @include flex-grid-column(shrink, 50px);
+  }
+}
+
+.workContents {
+  margin: 2vh 3vh;
+
+  .WorkTitle{
+    @include flex;
+    @include flex-direction(column);
+    @include flex-align(justify, middle);
+    h3 {
+      font-size: 3rem;
+      margin-bottom: 0;
+    }
+    .resume li {
+      margin-right: 0.5rem;
+      padding: 0.2rem;
+      font-size: 0.95rem;
+      font-weight: 200;
+      border: 1px solid #000;
+      border-radius: 4px;
+    }
+    @include breakpoint(xxlarge) {
+      @include flex-direction(row);
+    }
+  }
+
+  .descriptionCmpny {
+    @include flex;
+    margin-top: 4vh;
+  }
+
+  .workShowcase {
+    @include flex-direction(column);
+    margin-top: 2vh;
+    a img {
+      padding-bottom: 2vh;
+    }
+  }
+
+  .descriptionJob {
+    @include flex;
+    margin-top: 2vh;
+  }
+}
+
+
+a.back{
+    font-family: 'Lato';
+    font-size: 16px;
+    color: #dfdfdf;
+    text-decoration: none;
+    text-align: center;
+    width: 20%;
+    margin: 25px auto 30px auto;
+    display: block;
+}
+
+  // a.firstlink {
+  //     // color: #fff;
+  //     // border: 3px solid #fff;
+  //     // padding: 15px 10px;
+  //     // display: block;
+  //     // text-align: center;
+  //     // margin: 25px auto;
+  //     // width: 13%;
+  // }
+
+a.mainlink, a.nextlink {
+    font-family: 'Lato';
+    color: #fff;
+    border: 3px solid #fff;
+    display: block;
+    text-align: center;
+    margin: 25px auto;
+    width: 22%;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+a.mainlink:hover, a.nextlink:hover{
+    color: #fff;
+}
+
+
+/** Work Page transition ** ----------------------------------**/
+/**** -------------------------------**/
+
+/** Footer ** ----------------------------------**/
+/**** -------------------------------**/
+footer {
+  width: 100%;
+  height: 8vh;
+  padding: 1rem 0;
+  background-color: #000;
+  color: #fff;
+}
+
+/** Footer End ** ----------------------------------**/
+/**** -------------------------------**/
